@@ -1,4 +1,3 @@
-import sqlite3
 import pandas as pd
 from fintual_st.db.db import DatabaseManager
 from fintual_st.fintual_api import FintualAPI
