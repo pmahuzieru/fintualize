@@ -1,6 +1,6 @@
-from fintual_api import FintualAPI
+from fintual_st.fintual_api import FintualAPI
 
 api = FintualAPI()
 api.get_token()
 
-print(api.get_asset_providers())
+print(api.get_conceptual_assets(60))

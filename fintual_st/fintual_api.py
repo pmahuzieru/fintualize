@@ -1,6 +1,6 @@
+import os
 from urllib.parse import urljoin
 import requests
-import json
 
 from fintual_st.helpers import read_credentials
 
@@ -55,6 +55,17 @@ class FintualAPI:
 
         if response.status_code != 200:
             print(f"Error getting asset providers: {response.status_code} {response.reason}")
+            return
+        
+        return response.json()
+    
+    def get_conceptual_assets(self, asset_provider_id: int):
+        subpaths = [FINTUAL_API_ROOT] + ['asset_providers', f'{asset_provider_id}', 'conceptual_assets']
+        endpoint = "/".join(subpaths)
+        response = requests.get(endpoint)
+
+        if response.status_code != 200:
+            print(f"Error getting conceptual assets: {response.status_code} {response.reason}")
             return
         
         return response.json()
